@@ -119,6 +119,7 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Functions\FunctionFile.html" />
     <Content Include="Functions\FunctionFile.js" />
+    <Content Include="ViewModel.js" />
     <Content Include="Home.css" />
     <Content Include="Home.html" />
     <Content Include="Home.js" />
@@ -136,6 +137,8 @@
     <Content Include="Content\OfficeThemes.css" />
     <Content Include="Scripts\jquery.fabric.js" />
     <Content Include="Scripts\jquery.fabric.min.js" />
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\Office\1\access-web-16.00.debug.js" />
     <Content Include="Scripts\Office\1\access-web-16.00.js" />
     <Content Include="Scripts\Office\1\ar-sa\office_strings.debug.js" />

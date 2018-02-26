@@ -22,6 +22,8 @@
                 return;
             }
 
+            ko.applyBindings(new ViewModel(), document.getElementById("content-main"));
+
             $("#template-description").text("This sample highlights the highest value from the cells you have selected in the spreadsheet.");
             $('#button-text').text("Highlight!");
             $('#button-desc').text("Highlights the largest number.");
