@@ -46,7 +46,8 @@
         Excel.run(function (ctx) {
             // Create a proxy object for the active sheet
             var sheet = ctx.workbook.worksheets.getActiveWorksheet();
-            // Queue a command to write the sample data to the worksheet
+
+                // Queue a command to write the sample data to the worksheet
             sheet.getRange("B3:D5").values = values;
 
             // Run the queued-up commands, and return a promise to indicate task completion
