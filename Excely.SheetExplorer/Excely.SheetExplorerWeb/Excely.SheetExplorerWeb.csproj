@@ -67,15 +67,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\fabric.components.css" />
     <Content Include="Content\fabric.components.min.css" />
     <Content Include="Content\fabric.components.rtl.css" />
@@ -94,6 +85,7 @@
     <Content Include="Content\sass\_Fabric.Responsive.Variables.scss" />
     <Content Include="Content\sass\_Fabric.Responsive.Utilities.Variables.scss" />
     <Content Include="Content\sass\_Fabric.Mixins.scss" />
+    <Content Include="Content\sass\_Fabric.Mixins.RTL.scss" />
     <Content Include="Content\sass\_Fabric.Icons.scss" />
     <Content Include="Content\sass\_Fabric.Grid.scss" />
     <Content Include="Content\sass\_Fabric.Common.scss" />
@@ -116,35 +108,30 @@
     <Content Include="Content\sass\Fabric.Color.Mixins.Output.scss" />
     <Content Include="Content\sass\Fabric.Animations.RTL.Output.scss" />
     <Content Include="Content\sass\Fabric.Animations.Output.scss" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\OfficeThemes.css" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Functions\FunctionFile.html" />
     <Content Include="Functions\FunctionFile.js" />
-    <Content Include="ViewModel.js" />
-    <Content Include="Home.css" />
-    <Content Include="Home.html" />
-    <Content Include="Home.js" />
-    <Content Include="Images\AddinIcon.png" />
-    <Content Include="Images\Button16x16.png" />
-    <Content Include="Images\Button32x32.png" />
-    <Content Include="Images\Button80x80.png" />
-    <Content Include="Images\Close.png" />
-    <Content Include="Scripts\FabricUI\MessageBanner.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\Office\1\outlook-win32.debug-vsdoc.js" />
     <None Include="Scripts\Office\1\office-vsdoc.js" />
-    <Content Include="Content\OfficeThemes.css" />
     <Content Include="Scripts\jquery.fabric.js" />
     <Content Include="Scripts\jquery.fabric.min.js" />
-    <Content Include="Scripts\knockout-3.4.2.debug.js" />
-    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\Office\1\access-web-16.00.debug.js" />
     <Content Include="Scripts\Office\1\access-web-16.00.js" />
     <Content Include="Scripts\Office\1\ar-sa\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\ar-sa\office_strings.js" />
     <Content Include="Scripts\Office\1\ar-sa\outlook_strings.debug.js" />
     <Content Include="Scripts\Office\1\ar-sa\outlook_strings.js" />
+    <Content Include="Scripts\Office\1\ariatelemetry\aria-web-telemetry.js" />
     <Content Include="Scripts\Office\1\bg-bg\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\bg-bg\office_strings.js" />
     <Content Include="Scripts\Office\1\bg-bg\outlook_strings.debug.js" />
@@ -185,6 +172,8 @@
     <Content Include="Scripts\Office\1\excel-15.02.js" />
     <Content Include="Scripts\Office\1\excel-15.debug.js" />
     <Content Include="Scripts\Office\1\excel-15.js" />
+    <Content Include="Scripts\Office\1\excel-android-16.00.debug.js" />
+    <Content Include="Scripts\Office\1\excel-android-16.00.js" />
     <Content Include="Scripts\Office\1\excel-ios-16.00.debug.js" />
     <Content Include="Scripts\Office\1\excel-ios-16.00.js" />
     <Content Include="Scripts\Office\1\excel-mac-16.00.debug.js" />
@@ -195,6 +184,8 @@
     <Content Include="Scripts\Office\1\excel-win32-16.00.js" />
     <Content Include="Scripts\Office\1\excel-win32-16.01.debug.js" />
     <Content Include="Scripts\Office\1\excel-win32-16.01.js" />
+    <Content Include="Scripts\Office\1\excel-winrt-16.00.debug.js" />
+    <Content Include="Scripts\Office\1\excel-winrt-16.00.js" />
     <Content Include="Scripts\Office\1\excelios-15.debug.js" />
     <Content Include="Scripts\Office\1\excelios-15.js" />
     <Content Include="Scripts\Office\1\excelwebapp-15.01.debug.js" />
@@ -273,10 +264,14 @@
     <Content Include="Scripts\Office\1\o15apptofilemappingtable.js" />
     <Content Include="Scripts\Office\1\office.debug.js" />
     <Content Include="Scripts\Office\1\office.js" />
+    <Content Include="Scripts\Office\1\onenote-ios-16.00.debug.js" />
+    <Content Include="Scripts\Office\1\onenote-ios-16.00.js" />
     <Content Include="Scripts\Office\1\onenote-web-16.00.debug.js" />
     <Content Include="Scripts\Office\1\onenote-web-16.00.js" />
     <Content Include="Scripts\Office\1\onenote-win32-16.00.debug.js" />
     <Content Include="Scripts\Office\1\onenote-win32-16.00.js" />
+    <Content Include="Scripts\Office\1\onenote-winrt-16.00.debug.js" />
+    <Content Include="Scripts\Office\1\onenote-winrt-16.00.js" />
     <Content Include="Scripts\Office\1\outlook-15.01.debug.js" />
     <Content Include="Scripts\Office\1\outlook-15.01.js" />
     <Content Include="Scripts\Office\1\outlook-15.02.debug.js" />
@@ -287,8 +282,12 @@
     <Content Include="Scripts\Office\1\outlook-15.04.js" />
     <Content Include="Scripts\Office\1\outlook-15.debug.js" />
     <Content Include="Scripts\Office\1\outlook-15.js" />
+    <Content Include="Scripts\Office\1\outlook-android-16.00.debug.js" />
+    <Content Include="Scripts\Office\1\outlook-android-16.00.js" />
     <Content Include="Scripts\Office\1\outlook-ios-16.00.debug.js" />
     <Content Include="Scripts\Office\1\outlook-ios-16.00.js" />
+    <Content Include="Scripts\Office\1\outlook-mac-16.00.debug.js" />
+    <Content Include="Scripts\Office\1\outlook-mac-16.00.js" />
     <Content Include="Scripts\Office\1\outlook-web-16.00.debug.js" />
     <Content Include="Scripts\Office\1\outlook-web-16.00.js" />
     <Content Include="Scripts\Office\1\outlook-web-16.01.debug.js" />
@@ -409,6 +408,21 @@
     <Content Include="Scripts\Office\1\zh-tw\outlook_strings.js" />
     <Content Include="Scripts\Office\metadata\endpoints.xml" />
     <Content Include="Scripts\Office\metadata\features.xml" />
+    <Content Include="ViewModel.js" />
+    <Content Include="Home.css" />
+    <Content Include="Home.html" />
+    <Content Include="Home.js" />
+    <Content Include="Images\AddinIcon.png" />
+    <Content Include="Images\Button16x16.png" />
+    <Content Include="Images\Button32x32.png" />
+    <Content Include="Images\Button80x80.png" />
+    <Content Include="Images\Close.png" />
+    <Content Include="Scripts\FabricUI\MessageBanner.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\Office\MicrosoftAjax.js" />
     <Content Include="Web.config" />
   </ItemGroup>

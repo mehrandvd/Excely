@@ -11,7 +11,12 @@
             var element = document.querySelector('.ms-MessageBanner');
             messageBanner = new fabric.MessageBanner(element);
             messageBanner.hideBanner();
-            
+
+            var CommandBarElements = document.querySelectorAll(".ms-CommandBar");
+            for (var i = 0; i < CommandBarElements.length; i++) {
+                new fabric['CommandBar'](CommandBarElements[i]);
+            }
+
             // If not using Excel 2016, use fallback logic.
             if (!Office.context.requirements.isSetSupported('ExcelApi', '1.1')) {
                 $("#template-description").text("This sample will display the value of the cells that you have selected in the spreadsheet.");

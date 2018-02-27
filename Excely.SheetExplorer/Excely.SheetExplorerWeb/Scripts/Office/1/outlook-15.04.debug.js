@@ -1,5 +1,5 @@
 /* Outlook specific API library */
-/* Version: 15.0.4856.3003 */
+/* Version: 15.0.4927.1000 */
 /*
 	Copyright (c) Microsoft Corporation.  All rights reserved.
 */
@@ -4449,13 +4449,17 @@ var OfficeExt;
 var OfficeJsClient_OutlookWin32;
 (function(OfficeJsClient_OutlookWin32)
 {
+	function prepareRightAfterWebExtensionInitialize()
+	{
+		var appCommandHandler=OfficeExt.AppCommand.AppCommandManager.instance();
+		appCommandHandler.initializeAndChangeOnce();
+	}
 	function prepareRightBeforeWebExtensionInitialize()
 	{
 		OSF._OfficeAppFactory.setHostFacade(new OSF.DDA.DispIdHost.Facade(OSF.DDA.DispIdHost.getClientDelegateMethods,OSF.DDA.SafeArray.Delegate.ParameterMap));
-		var appCommandHandler=OfficeExt.AppCommand.AppCommandManager.instance();
-		appCommandHandler.initializeAndChangeOnce()
 	}
-	OfficeJsClient_OutlookWin32.prepareRightBeforeWebExtensionInitialize=prepareRightBeforeWebExtensionInitialize
+	OfficeJsClient_OutlookWin32.prepareRightBeforeWebExtensionInitialize=prepareRightBeforeWebExtensionInitialize;
+	OfficeJsClient_OutlookWin32.prepareRightAfterWebExtensionInitialize=prepareRightAfterWebExtensionInitialize;
 })(OfficeJsClient_OutlookWin32 || (OfficeJsClient_OutlookWin32={}));
 OSF.OUtil.setNamespace("SafeArray", OSF.DDA);
 OSF.DDA.SafeArray.Response={

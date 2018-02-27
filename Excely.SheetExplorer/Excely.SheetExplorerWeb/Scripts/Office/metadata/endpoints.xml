@@ -474,15 +474,19 @@
   <Endpoint Name="Excel" Platform="Win32" MajorVersion="16" ApiSetVersion="0" DisplayName="Microsoft Excel 2016 for Windows">
     <Sets>
       <Set Name="BindingEvents" Version="1.1" />
+      <Set Name="CompressedFile" Version="1.1" />
       <Set Name="DocumentEvents" Version="1.1" />
+      <Set Name="File" Version="1.1" />
       <Set Name="MatrixBindings" Version="1.1" />
       <Set Name="MatrixCoercion" Version="1.1" />
+      <Set Name="PdfFile" Version="1.1" />
       <Set Name="Selection" Version="1.1" />
       <Set Name="Settings" Version="1.1" />
       <Set Name="TableBindings" Version="1.1" />
       <Set Name="TableCoercion" Version="1.1" />
       <Set Name="TextBindings" Version="1.1" />
       <Set Name="TextCoercion" Version="1.1" />
+      <Set Name="TextFile" Version="1.1" />
       <Set Name="ExcelApi" Version="1.1" />
       <Set Name="ImageApi" Version="1.1" />
     </Sets>
@@ -496,11 +500,14 @@
       <Method Name="Bindings.getByIdAsync" />
       <Method Name="Bindings.releaseByIdAsync" />
       <Method Name="Document.addHandlerAsync" />
+      <Method Name="Document.getFileAsync" />
       <Method Name="Document.getFilePropertiesAsync" />
       <Method Name="Document.getSelectedDataAsync" />
       <Method Name="Document.goToByIdAsync" />
       <Method Name="Document.removeHandlerAsync" />
       <Method Name="Document.setSelectedDataAsync" />
+      <Method Name="File.closeAsync" />
+      <Method Name="File.getSliceAsync" />
       <Method Name="MatrixBinding.getDataAsync" />
       <Method Name="MatrixBinding.setDataAsync" />
       <Method Name="Settings.get" />

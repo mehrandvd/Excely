@@ -4,27 +4,25 @@
     self.title = ko.observable("Sheets Tree View");
     self.sheets = ko.observableArray([]);
 
-
-
-    function init() {
-
+    self.refreshSheets = function () {
         Excel.run(function (ctx) {
-                // Create a proxy object for the active sheet
-                var sheet = ctx.workbook.worksheets.getActiveWorksheet();
                 // Queue a command to write the sample data to the worksheet
                 ctx.workbook.worksheets.load('items');
                 var p = ctx.sync();
-                p.then(function() {
+                p.then(function () {
                     var list = ctx.workbook.worksheets.items;
                     self.sheets(list);
                 });
-                
+
                 // Run the queued-up commands, and return a promise to indicate task completion
                 return ctx.sync();
             })
             .catch(errorHandler);
+    }
 
-        
+
+    function init() {
+        self.refreshSheets();
     }
 
     function errorHandler(error) {
