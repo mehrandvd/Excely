@@ -29,6 +29,20 @@
             .catch(errorHandler);
     }
 
+    self.activateWorksheet = function(selectedSheet) {
+        Excel.run(function (ctx) {
+            var wSheetName = selectedSheet.name;
+            var worksheet = ctx.workbook.worksheets.getItem(wSheetName);
+            worksheet.activate();
+            return ctx.sync();
+        }).catch(function (error) {
+            console.log("Error: " + error);
+            if (error instanceof OfficeExtension.Error) {
+                console.log("Debug info: " + JSON.stringify(error.debugInfo));
+            }
+        });
+    }
+
 
     function init() {
         self.refreshSheets();
