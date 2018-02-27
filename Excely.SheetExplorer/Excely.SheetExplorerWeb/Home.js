@@ -17,6 +17,11 @@
                 new fabric['CommandBar'](CommandBarElements[i]);
             }
 
+            var TextFieldElements = document.querySelectorAll(".ms-TextField");
+            for (var i = 0; i < TextFieldElements.length; i++) {
+                new fabric['TextField'](TextFieldElements[i]);
+            }
+
             // If not using Excel 2016, use fallback logic.
             if (!Office.context.requirements.isSetSupported('ExcelApi', '1.1')) {
                 $("#template-description").text("This sample will display the value of the cells that you have selected in the spreadsheet.");

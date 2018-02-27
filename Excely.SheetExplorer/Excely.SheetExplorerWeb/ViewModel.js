@@ -3,6 +3,15 @@
 
     self.title = ko.observable("Sheets Tree View");
     self.sheets = ko.observableArray([]);
+    self.searchText = ko.observable("");
+
+    self.filteredSheets = ko.pureComputed(function() {
+        return self.sheets().filter(function(item) {
+            if (item.name && self.searchText())
+                return item.name.indexOf(self.searchText()) !== -1;
+            return true;
+        });
+    });
 
     self.refreshSheets = function () {
         Excel.run(function (ctx) {

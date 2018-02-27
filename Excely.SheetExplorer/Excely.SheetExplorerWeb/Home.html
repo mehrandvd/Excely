@@ -20,9 +20,10 @@
 
     <!-- For the Office UI Fabric, go to https://aka.ms/office-ui-fabric to learn more. -->
     <link rel="stylesheet" href="./Content/fabric.min.css">
+    <link rel="stylesheet" href="./Content/fabric.css">
     <link rel="stylesheet" href="Content/fabric.components.min.css">
+    <link href="Content/fabric.components.css" rel="stylesheet" />
 
-    
 
     <script src="Scripts/knockout-3.4.2.js"></script>
     <!-- To enable the offline use of Office UI Fabric, use: -->
@@ -32,122 +33,20 @@
 <body>
 <div id="content-main">
     <div class="ms-CommandBar">
-        <div class="ms-CommandBar-sideCommands">
+        <!--<div class="ms-CommandBar-sideCommands">
             <div class="ms-CommandButton ms-CommandButton--noLabel">
                 <button class="ms-CommandButton-button">
                     <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--CircleRing"></i></span>
                     <span class="ms-CommandButton-label"></span>
                 </button>
             </div>
-        </div>
+        </div>-->
         <div class="ms-CommandBar-mainArea">
-            <div class="ms-SearchBox ms-SearchBox--commandBar">
-                <input class="ms-SearchBox-field" type="text" value="">
-                <label class="ms-SearchBox-label">
-                    <i class="ms-SearchBox-icon ms-Icon ms-Icon--Search"></i>
-                    <span class="ms-SearchBox-text">Search</span>
-                </label>
-                <div class="ms-CommandButton ms-SearchBox-clear ms-CommandButton--noLabel">
-                    <button class="ms-CommandButton-button">
-                        <span class="ms-CommandButton-icon"><i class="ms-Icon ms-Icon--Cancel"></i></span>
-                        <span class="ms-CommandButton-label"></span>
-                    </button>
-                </div>
-                <div class="ms-CommandButton ms-SearchBox-exit ms-CommandButton--noLabel">
-                    <button class="ms-CommandButton-button">
-                        <span class="ms-CommandButton-icon"><i class="ms-Icon ms-Icon--ChromeBack"></i></span>
-                        <span class="ms-CommandButton-label"></span>
-                    </button>
-                </div>
-                <div class="ms-CommandButton ms-SearchBox-filter ms-CommandButton--noLabel">
-                    <button class="ms-CommandButton-button">
-                        <span class="ms-CommandButton-icon"><i class="ms-Icon ms-Icon--Filter"></i></span>
-                        <span class="ms-CommandButton-label"></span>
-                    </button>
-                </div>
-            </div>
             <div class="ms-CommandButton">
-                <button class="ms-CommandButton-button">
-                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--CircleRing"></i></span>
-                    <span class="ms-CommandButton-label">Command</span>
+                <button class="ms-CommandButton-button" data-bind="click: refreshSheets">
+                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--refresh"></i></span>
+                    <span class="ms-CommandButton-label">Refresh</span>
                 </button>
-            </div>
-            <div class="ms-CommandButton">
-                <button class="ms-CommandButton-button">
-                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--CircleRing"></i></span>
-                    <span class="ms-CommandButton-label">New</span>
-                    <span class="ms-CommandButton-dropdownIcon"><i class="ms-Icon ms-Icon--ChevronDown"></i></span>
-                </button>
-                <ul class="ms-ContextualMenu is-opened ms-ContextualMenu--hasIcons">
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">Folder</a>
-                        <i class="ms-Icon ms-Icon--Folder"></i>
-                    </li>
-                    <li class="ms-ContextualMenu-item ms-ContextualMenu-item--divider"></li>
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">Plain Text Document</a>
-                        <i class="ms-Icon ms-Icon--Page"></i>
-                    </li>
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">A Coffee</a>
-                        <i class="ms-Icon ms-Icon--Coffee"></i>
-                    </li>
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">Picture</a>
-                        <i class="ms-Icon ms-Icon--Picture"></i>
-                    </li>
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">Money</a>
-                        <i class="ms-Icon ms-Icon--Money"></i>
-                    </li>
-                </ul>
-            </div>
-            <div class="ms-CommandButton">
-                <button class="ms-CommandButton-button">
-                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--CircleRing"></i></span>
-                    <span class="ms-CommandButton-label">Command</span>
-                </button>
-            </div>
-            <div class="ms-CommandButton">
-                <button class="ms-CommandButton-button">
-                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--CircleRing"></i></span>
-                    <span class="ms-CommandButton-label">Command</span>
-                </button>
-            </div>
-            <div class="ms-CommandButton">
-                <button class="ms-CommandButton-button">
-                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--CircleRing"></i></span>
-                    <span class="ms-CommandButton-label">Command</span>
-                </button>
-            </div>
-            <div class="ms-CommandButton ms-CommandBar-overflowButton ms-CommandButton--noLabel">
-                <button class="ms-CommandButton-button">
-                    <span class="ms-CommandButton-icon"><i class="ms-Icon ms-Icon--More"></i></span>
-                    <span class="ms-CommandButton-label"></span>
-                </button>
-                <ul class="ms-ContextualMenu is-opened ms-ContextualMenu--hasIcons">
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">Folder</a>
-                        <i class="ms-Icon ms-Icon--Folder"></i>
-                    </li>
-                    <li class="ms-ContextualMenu-item ms-ContextualMenu-item--divider"></li>
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">Plain Text Document</a>
-                        <i class="ms-Icon ms-Icon--Page"></i>
-                    </li>
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">A Coffee</a>
-                        <i class="ms-Icon ms-Icon--Coffee"></i>
-                    </li>
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">Picture</a>
-                        <i class="ms-Icon ms-Icon--Picture"></i>
-                    </li>
-                    <li class="ms-ContextualMenu-item">
-                        <a class="ms-ContextualMenu-link" tabindex="1">Money</a>
-                        <i class="ms-Icon ms-Icon--Money"></i>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
@@ -156,23 +55,27 @@
         <!--<br />
         <div class="ms-font-xxl ms-fontColor-neutralSecondary ms-fontWeight-semilight" data-bind="text: title"></div>
         <br /><br />-->
-
-        <ul class="ms-List" data-bind="foreach: sheets">
+        
+        <div class="ms-TextField">
+            <label class="ms-Label">Search for sheets</label>
+            <input class="ms-TextField-field" type="text" placeholder="Search..." data-bind="textInput: searchText">
+        </div>
+        <ul class="ms-List" data-bind="foreach: filteredSheets">
             <li class="ms-ListItem">
                 <span class="ms-ListItem-primaryText" data-bind="text:name"></span>
             </li>
         </ul>
 
         <!--<div class="ms-font-xl ms-fontColor-neutralTertiary">Getting Started</div>
-        <p class="ms-font-m-plus ms-fontColor-neutralTertiary" id="template-description"></p>
-        <div class="ms-font-m"><a target="_blank" class="ms-Link ms-Link--hero" href="https://go.microsoft.com/fwlink/?LinkId=276812">Find more samples online...</a></div>
-        <br /><br />
+    <p class="ms-font-m-plus ms-fontColor-neutralTertiary" id="template-description"></p>
+    <div class="ms-font-m"><a target="_blank" class="ms-Link ms-Link--hero" href="https://go.microsoft.com/fwlink/?LinkId=276812">Find more samples online...</a></div>
+    <br /><br />
 
-        <button class="ms-Button ms-Button--primary" id="highlight-button">
-            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--plus"></i></span>
-            <span class="ms-Button-label" id="button-text"></span>
-            <span class="ms-Button-description" id="button-desc"></span>
-        </button>-->
+    <button class="ms-Button ms-Button--primary" id="highlight-button">
+        <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--plus"></i></span>
+        <span class="ms-Button-label" id="button-text"></span>
+        <span class="ms-Button-description" id="button-desc"></span>
+    </button>-->
     </div>
 </div>
 <div class="footer">
