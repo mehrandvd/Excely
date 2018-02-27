@@ -123,6 +123,8 @@
     <Content Include="Functions\FunctionFile.js" />
     <None Include="Scripts\Office\1\outlook-win32.debug-vsdoc.js" />
     <None Include="Scripts\Office\1\office-vsdoc.js" />
+    <Content Include="Scripts\FabricUI\fabric.js" />
+    <Content Include="Scripts\FabricUI\fabric.min.js" />
     <Content Include="Scripts\jquery.fabric.js" />
     <Content Include="Scripts\jquery.fabric.min.js" />
     <Content Include="Scripts\Office\1\access-web-16.00.debug.js" />
