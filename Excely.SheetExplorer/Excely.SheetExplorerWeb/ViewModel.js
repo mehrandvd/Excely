@@ -22,9 +22,10 @@
                     var list = ctx.workbook.worksheets.items.map(function(item) {
                         return {
                             sheetInfo: item,
-                            dependecies: [],
+                            dependecies: ko.observableArray([]),
                             description: '',
-                            loadedFormulas: ko.observableArray([])
+                            loadedFormulas: ko.observableArray([]),
+                            isExpanded: ko.observable(false)
                         }
                     });
 
@@ -51,6 +52,23 @@
                                     }
                                 }
                                 item.loadedFormulas(formulas);
+
+                                var dependentSheets = [];
+
+                                for (var i = 0; i < self.sheets().length; i++) {
+                                    var sheet = self.sheets()[i];
+
+                                    var someFormulaUsesSheet = formulas.some(function (item) {
+                                        return item.indexOf(sheet.sheetInfo.name) > -1;
+                                    });
+
+                                    if (someFormulaUsesSheet) {
+                                            dependentSheets.push(sheet);
+                                    }
+
+                                    item.dependecies(dependentSheets);
+
+                                }
                             });
                         });
                     };
