@@ -19,8 +19,8 @@
     <script src="Home.js" type="text/javascript"></script>
 
     <!-- For the Office UI Fabric, go to https://aka.ms/office-ui-fabric to learn more. -->
-    <link rel="stylesheet" href="./Content/fabric.min.css">
     <link rel="stylesheet" href="./Content/fabric.css">
+    <link rel="stylesheet" href="./Content/fabric.min.css">
     <link rel="stylesheet" href="Content/fabric.components.min.css">
     <link href="Content/fabric.components.css" rel="stylesheet" />
 
@@ -44,7 +44,7 @@
         <div class="ms-CommandBar-mainArea">
             <div class="ms-CommandButton">
                 <button class="ms-CommandButton-button" data-bind="click: refreshSheets">
-                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--refresh"></i></span>
+                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--Refresh"></i></span>
                     <span class="ms-CommandButton-label">Refresh</span>
                 </button>
             </div>
@@ -61,9 +61,33 @@
             <input class="ms-TextField-field" type="text" placeholder="Search..." data-bind="textInput: searchText">
         </div>
         <ul class="ms-List" data-bind="foreach: filteredSheets">
-            <li class="ms-ListItem is-selectable" data-bind="click: function(){$root.activateWorksheet($data);}">
-                <span class="ms-ListItem-primaryText" data-bind="text:name"></span>
+            <li class="ms-ListItem is-unread is-selectable" tabindex="0">
+                <span class="ms-ListItem-primaryText" data-bind="text: sheetInfo.name"></span> 
+                <span class="ms-ListItem-secondaryText">
+                    <span data-bind="text: loadedFormulas().length"></span>
+                    <span>formulas found.</span>
+                </span> 
+                <!--<span class="ms-ListItem-tertiaryText">depends on 5 sheets, referenced by 2 sheets</span>--> 
+                <!--<span class="ms-ListItem-metaText">2:42p</span>--> 
+                <div class="ms-ListItem-selectionTarget"></div>
+                <div class="ms-ListItem-actions">
+                    <div class="ms-ListItem-action" data-bind="click: function(){$root.activateWorksheet($data.sheetInfo);}">
+                        <i class="ms-Icon ms-Icon--PencilReply"></i>
+                    </div>
+                    <div class="ms-ListItem-action">
+                        <i class="ms-Icon ms-Icon--Refresh"></i>
+                    </div>
+                    <!--<div class="ms-ListItem-action">
+                        <i class="ms-Icon ms-Icon--Flag"></i>
+                    </div>
+                    <div class="ms-ListItem-action">
+                        <i class="ms-Icon ms-Icon--DeveloperTools"></i>
+                    </div>-->
+                </div>
             </li>
+            <!--<li class="ms-ListItem" data-bind="click: function(){$root.activateWorksheet($data);}">
+                <span class="ms-ListItem-primaryText" data-bind="text: sheetInfo.name"></span>
+            </li>-->
         </ul>
 
         <!--<div class="ms-font-xl ms-fontColor-neutralTertiary">Getting Started</div>

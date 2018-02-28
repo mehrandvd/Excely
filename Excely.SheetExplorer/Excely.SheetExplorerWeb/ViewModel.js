@@ -7,26 +7,78 @@
 
     self.filteredSheets = ko.pureComputed(function() {
         return self.sheets().filter(function(item) {
-            if (item.name && self.searchText())
-                return item.name.toLowerCase().indexOf(self.searchText().toLowerCase()) !== -1;
+            if (item.sheetInfo.name && self.searchText())
+                return item.sheetInfo.name.toLowerCase().indexOf(self.searchText().toLowerCase()) !== -1;
             return true;
         });
     });
 
     self.refreshSheets = function () {
-        Excel.run(function (ctx) {
-                // Queue a command to write the sample data to the worksheet
-                ctx.workbook.worksheets.load('items');
-                var p = ctx.sync();
-                p.then(function () {
-                    var list = ctx.workbook.worksheets.items;
-                    self.sheets(list);
-                });
+        Excel.run(function(ctx) {
+            // Queue a command to write the sample data to the worksheet
+            ctx.workbook.worksheets.load('items');
+            var p = ctx.sync();
+            p.then(function() {
+                    var list = ctx.workbook.worksheets.items.map(function(item) {
+                        return {
+                            sheetInfo: item,
+                            dependecies: [],
+                            description: '',
+                            loadedFormulas: ko.observableArray([])
+                        }
+                    });
 
-                // Run the queued-up commands, and return a promise to indicate task completion
-                return ctx.sync();
-            })
-            .catch(errorHandler);
+                    self.sheets(list);
+
+                    function loadFormulas(item) {
+                        Excel.run(function (ctxFormula) {
+
+                            var sheetName = item.sheetInfo.name;
+                            //var rangeAddress = "A1:GG60";
+                            var worksheet = ctxFormula.workbook.worksheets.getItem(sheetName);
+                            item.loadedRange = worksheet.getUsedRange();
+                            item.loadedRange.load('formulas');
+
+                            ctxFormula.sync().then(function () {
+                                var formulas = [];
+
+                                for (var i = 0; i < item.loadedRange.formulas.length ; i++) {
+                                    var row = item.loadedRange.formulas[i];
+                                    for (var j = 0; j < row.length ; j++) {
+                                        var cell = row[j];
+                                        if (cell && cell.length > 0 &&  cell[0] ==='=')
+                                            formulas.push(cell);
+                                    }
+                                }
+                                item.loadedFormulas(formulas);
+                            });
+                        });
+                    };
+
+                    for (var i = 0; i < list.length; i++) {
+                        var item = list[i];
+                        loadFormulas(item);
+                    }
+
+                    //return ctx.sync().then(function() {
+                    //    //for (var i = 0; i < list.length; i++) {
+                    //    //    var item = list[i];
+
+                    //    //    item.loadedFormulas = item.loadedRange.forumlas;
+                    //    //}
+
+                    //    self.sheets(list);
+                    //});
+
+                    // Run the queued-up commands, and return a promise to indicate task completion
+                    //return ctx.sync();
+                })
+                .catch(errorHandler);
+        });
+    }
+
+    function populateDescription(sheetInfo) {
+        console.log(sheetInfo);
     }
 
     self.activateWorksheet = function(selectedSheet) {
