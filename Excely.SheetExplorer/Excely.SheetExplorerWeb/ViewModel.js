@@ -8,7 +8,7 @@
     self.filteredSheets = ko.pureComputed(function() {
         return self.sheets().filter(function(item) {
             if (item.name && self.searchText())
-                return item.name.indexOf(self.searchText()) !== -1;
+                return item.name.toLowerCase().indexOf(self.searchText().toLowerCase()) !== -1;
             return true;
         });
     });
