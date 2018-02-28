@@ -5,6 +5,67 @@ html {
     min-height: 100%;
 }
 
+body {
+    margin: 0px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.padding {
+    padding: 0px 10px;
+    margin: 110px 0px 50px;
+}
+
+.ms-TextField {
+    background-color: white;
+    padding: 0px 5px;
+}
+
+.ms-ListItem-primaryText {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.ms-ListItem.is-unread .ms-ListItem-secondaryText, .ms-ListItem.is-unread .ms-ListItem-metaText {
+    font-weight: normal;
+}
+
+.ms-ListItem-tertiaryText {
+    font-size: 12px;
+}
+
+.list-row {
+    position: relative;
+}
+
+.children {
+    padding-left: 20px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    transition: top 200ms ease-in-out 10ms, 
+                left 100ms ease-in-out 190ms;
+}
+
+.not-visible {
+    left: -20px;
+    top: -15px;
+}
+
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 #notification-popup.ms-MessageBanner {
     position: absolute;

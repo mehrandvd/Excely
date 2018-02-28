@@ -14,9 +14,7 @@
     <!-- To enable offline debugging using a local reference to Office.js, use:                        -->
     <!-- <script src="Scripts/Office/MicrosoftAjax.js" type="text/javascript"></script>  -->
     <!-- <script src="Scripts/Office/1/office.js" type="text/javascript"></script>  -->
-    <script src="ViewModel.js"></script>
-    <link href="Home.css" rel="stylesheet" type="text/css" />
-    <script src="Home.js" type="text/javascript"></script>
+
 
     <!-- For the Office UI Fabric, go to https://aka.ms/office-ui-fabric to learn more. -->
     <link rel="stylesheet" href="./Content/fabric.css">
@@ -30,6 +28,10 @@
     <!-- link rel="stylesheet" href="Content/fabric.min.css" -->
     <!-- link rel="stylesheet" href="Content/fabric.components.min.css" -->
     
+    <script src="ViewModel.js"></script>
+    <link href="Home.css" rel="stylesheet" type="text/css" />
+    <script src="Home.js" type="text/javascript"></script>
+
     <script type="text/html" id="sheet-template">
         <div class="ms-ListItem is-unread is-selectable" tabindex="0" data-bind="click: function(){$root.activateWorksheet($data.sheet.sheetInfo);}">
             <span class="ms-ListItem-primaryText" data-bind="text: sheet.sheetInfo.name"></span> 
@@ -62,7 +64,7 @@
                 </div>-->
             </div>
         </div>
-        <div data-bind="if: isExpanded" style="padding-left: 20px;">
+        <div data-bind="{visible: isExpanded, css: {'not-visible': !isExpanded()}}" class="children">
             <div data-bind="foreach: sheet.dependecies">
                 <div data-bind="template: { name: 'sheet-template', data: $data }"></div>
             </div>
@@ -73,8 +75,9 @@
 </head>
 <body>
 <div id="content-main">
-    <div class="ms-CommandBar">
-        <!--<div class="ms-CommandBar-sideCommands">
+    <div class="header">
+        <div class="ms-CommandBar">
+            <!--<div class="ms-CommandBar-sideCommands">
             <div class="ms-CommandButton ms-CommandButton--noLabel">
                 <button class="ms-CommandButton-button">
                     <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--CircleRing"></i></span>
@@ -82,43 +85,64 @@
                 </button>
             </div>
         </div>-->
-        <div class="ms-CommandBar-mainArea">
-            <div class="ms-CommandButton">
-                <button class="ms-CommandButton-button" data-bind="click: refreshSheets">
-                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--Refresh"></i></span>
-                    <span class="ms-CommandButton-label">Refresh</span>
-                </button>
+            <div class="ms-CommandBar-mainArea">
+                <div class="ms-CommandButton">
+                    <button class="ms-CommandButton-button" data-bind="click: refreshSheets">
+                        <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--Refresh"></i></span>
+                        <span class="ms-CommandButton-label">Refresh</span>
+                    </button>
+                </div>
             </div>
         </div>
+        <div class="ms-TextField">
+            <label class="ms-Label">Sheets:</label>
+            <input class="ms-TextField-field" type="text" placeholder="Search in sheets..." data-bind="textInput: searchText">
+        </div>
     </div>
+   
 
     <div class="padding">
         <!--<br />
         <div class="ms-font-xxl ms-fontColor-neutralSecondary ms-fontWeight-semilight" data-bind="text: title"></div>
         <br /><br />-->
+
         
-        <div class="ms-TextField">
-            <label class="ms-Label">Search for sheets</label>
-            <input class="ms-TextField-field" type="text" placeholder="Search..." data-bind="textInput: searchText">
-        </div>
         <div class="ms-List" data-bind="foreach: filteredSheets">
-            <div data-bind="template: { name: 'sheet-template', data: $data }"></div>
+            <div data-bind="template: { name: 'sheet-template', data: $data }" class="list-row"></div>
             <!--<li class="ms-ListItem" data-bind="click: function(){$root.activateWorksheet($data);}">
                 <span class="ms-ListItem-primaryText" data-bind="text: sheetInfo.name"></span>
             </li>-->
         </div>
 
         <!--<div class="ms-font-xl ms-fontColor-neutralTertiary">Getting Started</div>
-    <p class="ms-font-m-plus ms-fontColor-neutralTertiary" id="template-description"></p>
-    <div class="ms-font-m"><a target="_blank" class="ms-Link ms-Link--hero" href="https://go.microsoft.com/fwlink/?LinkId=276812">Find more samples online...</a></div>
-    <br /><br />
+        <p class="ms-font-m-plus ms-fontColor-neutralTertiary" id="template-description"></p>
+        <div class="ms-font-m"><a target="_blank" class="ms-Link ms-Link--hero" href="https://go.microsoft.com/fwlink/?LinkId=276812">Find more samples online...</a></div>
+        <br /><br />
 
-    <button class="ms-Button ms-Button--primary" id="highlight-button">
-        <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--plus"></i></span>
-        <span class="ms-Button-label" id="button-text"></span>
-        <span class="ms-Button-description" id="button-desc"></span>
-    </button>-->
+        <button class="ms-Button ms-Button--primary" id="highlight-button">
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--plus"></i></span>
+            <span class="ms-Button-label" id="button-text"></span>
+            <span class="ms-Button-description" id="button-desc"></span>
+        </button>-->
+        
+        
+        
+
     </div>
+    
+    <div class="ms-MessageBar ms-MessageBar--success footer">
+        <div class="ms-MessageBar-content">
+            <div class="ms-MessageBar-icon">
+                <i class="ms-Icon ms-Icon--Completed"></i>
+            </div>
+            <div class="ms-MessageBar-text">
+                Find me here:
+                <br />
+                <a href="http://mehrandvd.me" class="ms-Link">mehrandvd.me</a> 
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- FabricUI component used for displaying notifications -->
