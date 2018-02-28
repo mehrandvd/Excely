@@ -31,29 +31,29 @@
     <!-- link rel="stylesheet" href="Content/fabric.components.min.css" -->
     
     <script type="text/html" id="sheet-template">
-        <div class="ms-ListItem is-unread is-selectable" tabindex="0" data-bind="click: function(){isExpanded(!isExpanded())}">
-            <span class="ms-ListItem-primaryText" data-bind="text: sheetInfo.name"></span> 
+        <div class="ms-ListItem is-unread is-selectable" tabindex="0" data-bind="click: function(){$root.activateWorksheet($data.sheet.sheetInfo);}">
+            <span class="ms-ListItem-primaryText" data-bind="text: sheet.sheetInfo.name"></span> 
             <span class="ms-ListItem-secondaryText">
                 <span>Depends on</span>
-                <span data-bind="text: dependecies().length"></span>
+                <span data-bind="text: sheet.dependecies().length"></span>
                 <span>sheets.</span>
             </span> 
             <span class="ms-ListItem-tertiaryText">
                 <span>With</span>
-                <span data-bind="text: loadedFormulas().length"></span>
+                <span data-bind="text: sheet.loadedFormulas().length"></span>
                 <span>formulas</span>
-                <span>, referenced by </span>
-                <span data-bind="text: dependecies().length"></span>
+                <!--<span>, referenced by </span>
+                <span data-bind="text: dependecies().length"></span>-->
             </span>
             <!--<span class="ms-ListItem-metaText">2:42p</span>--> 
             <div class="ms-ListItem-selectionTarget"></div>
             <div class="ms-ListItem-actions">
-                <div class="ms-ListItem-action" data-bind="click: function(){$root.activateWorksheet($data.sheetInfo);}">
-                    <i class="ms-Icon ms-Icon--PencilReply"></i>
+                <div class="ms-ListItem-action" data-bind="click: function(){isExpanded(!isExpanded())}, clickBubble: false">
+                    <i class="ms-Icon ms-Icon--GroupedDescending"></i>
                 </div>
-                <div class="ms-ListItem-action">
+                <!--<div class="ms-ListItem-action">
                     <i class="ms-Icon ms-Icon--Refresh"></i>
-                </div>
+                </div>-->
                 <!--<div class="ms-ListItem-action">
                     <i class="ms-Icon ms-Icon--Flag"></i>
                 </div>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div data-bind="if: isExpanded" style="padding-left: 20px;">
-            <div data-bind="foreach: dependecies">
+            <div data-bind="foreach: sheet.dependecies">
                 <div data-bind="template: { name: 'sheet-template', data: $data }"></div>
             </div>
         </div>

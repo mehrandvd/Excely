@@ -10,6 +10,11 @@
             if (item.sheetInfo.name && self.searchText())
                 return item.sheetInfo.name.toLowerCase().indexOf(self.searchText().toLowerCase()) !== -1;
             return true;
+        }).map(function(sheet) {
+            return {
+                sheet: sheet,
+                isExpanded: ko.observable(false)
+            }
         });
     });
 
@@ -24,8 +29,7 @@
                             sheetInfo: item,
                             dependecies: ko.observableArray([]),
                             description: '',
-                            loadedFormulas: ko.observableArray([]),
-                            isExpanded: ko.observable(false)
+                            loadedFormulas: ko.observableArray([])
                         }
                     });
 
@@ -63,7 +67,11 @@
                                     });
 
                                     if (someFormulaUsesSheet) {
-                                            dependentSheets.push(sheet);
+                                        dependentSheets.push({
+                                            sheet: sheet,
+                                            isExpanded: ko.observable(false)
+                                        });
+
                                     }
 
                                     item.dependecies(dependentSheets);
