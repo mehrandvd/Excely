@@ -20,12 +20,20 @@ body {
 
 .padding {
     padding: 0px 10px;
-    margin: 110px 0px 50px;
+    margin: 110px 0px 70px;
 }
 
 .ms-TextField {
     background-color: white;
     padding: 0px 5px;
+}
+
+.ms-ListItem {
+    cursor: pointer;
+}
+
+.ms-ListItem:hover {
+    background-color: whitesmoke;
 }
 
 .ms-ListItem-primaryText {
