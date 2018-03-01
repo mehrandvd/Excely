@@ -49,6 +49,7 @@
     <Content Include="Excely.SheetExplorerManifest\Excely.SheetExplorer.xml">
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
     </Content>
+    <None Include="Scaling Model - v 279 - Copy.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Excely.SheetExplorerWeb\Excely.SheetExplorerWeb.csproj">

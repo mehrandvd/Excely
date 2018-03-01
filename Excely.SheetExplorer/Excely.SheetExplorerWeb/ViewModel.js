@@ -4,7 +4,7 @@
     self.title = ko.observable("Sheets Tree View");
     self.sheets = ko.observableArray([]);
     self.searchText = ko.observable("");
-
+    self.isBusy = ko.observable(false);
     self.filteredSheets = ko.pureComputed(function() {
         return self.sheets().filter(function(item) {
             if (item.sheetInfo.name && self.searchText())
@@ -19,7 +19,8 @@
     });
 
     self.refreshSheets = function () {
-        Excel.run(function(ctx) {
+        self.isBusy(true);
+        Excel.run(function (ctx) {
             // Queue a command to write the sample data to the worksheet
             ctx.workbook.worksheets.load('items');
             var p = ctx.sync();
@@ -29,7 +30,7 @@
                             sheetInfo: item,
                             dependecies: ko.observableArray([]),
                             description: '',
-                            loadedFormulas: ko.observableArray([])
+                            loadedFormulas: ko.observableArray([]),
                         }
                     });
 
@@ -85,7 +86,7 @@
                         var item = list[i];
                         loadFormulas(item);
                     }
-
+                    self.isBusy(false);
                     //return ctx.sync().then(function() {
                     //    //for (var i = 0; i < list.length; i++) {
                     //    //    var item = list[i];

@@ -64,7 +64,7 @@
                 </div>-->
             </div>
         </div>
-        <div data-bind="{visible: isExpanded, css: {'not-visible': !isExpanded()}}" class="children">
+        <div data-bind="{if: isExpanded, css: {'not-visible': !isExpanded()}}" class="children">
             <div data-bind="foreach: sheet.dependecies">
                 <div data-bind="template: { name: 'sheet-template', data: $data }"></div>
             </div>
@@ -88,7 +88,9 @@
             <div class="ms-CommandBar-mainArea">
                 <div class="ms-CommandButton">
                     <button class="ms-CommandButton-button" data-bind="click: refreshSheets">
-                        <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--Refresh"></i></span>
+                        <span class="ms-CommandButton-icon ms-fontColor-themePrimary" data-bind="css: {'spin': $root.isBusy}">
+                            <i class="ms-Icon ms-Icon--Refresh"></i>
+                        </span>
                         <span class="ms-CommandButton-label">Refresh</span>
                     </button>
                 </div>
