@@ -63,8 +63,8 @@
                                 for (var i = 0; i < self.sheets().length; i++) {
                                     var sheet = self.sheets()[i];
 
-                                    var someFormulaUsesSheet = formulas.some(function (item) {
-                                        return item.indexOf(sheet.sheetInfo.name) > -1;
+                                    var someFormulaUsesSheet = formulas.some(function (formula) {
+                                        return sheetName !== sheet.sheetInfo.name && formula.indexOf(sheet.sheetInfo.name) > -1;
                                     });
 
                                     if (someFormulaUsesSheet) {
