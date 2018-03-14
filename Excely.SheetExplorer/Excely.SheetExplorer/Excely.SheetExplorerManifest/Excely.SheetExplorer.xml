@@ -22,7 +22,7 @@
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="~remoteAppUrl/Images/Button32x32.png" />
 
-  <SupportUrl DefaultValue="http://mehrandvd.me" />
+  <SupportUrl DefaultValue="http://mehrandvd.me/2018/03/10/excel-sheet-explorer-turning-shits-to-sheets/" />
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
   <AppDomains>
     <AppDomain>AppDomain1</AppDomain>
@@ -35,6 +35,14 @@
   <Hosts>
     <Host Name="Workbook" />
   </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.3">
+      <Set Name="ExcelApi" MinVersion="1.3"/>
+    </Sets>
+    <Methods>
+      <Method Name="rangeView.formulas"/>
+    </Methods>
+  </Requirements>
   <DefaultSettings>
     <SourceLocation DefaultValue="~remoteAppUrl/Home.html" />
   </DefaultSettings>
@@ -56,13 +64,13 @@
           <!--"This code enables a customizable message to be displayed when the add-in is loaded successfully upon individual install."-->
           <GetStarted>
             <!-- Title of the Getting Started callout. The resid attribute points to a ShortString resource -->
-            <Title resid="Contoso.GetStarted.Title"/>
+            <Title resid="Excely.GetStarted.Title"/>
 
             <!-- Description of the Getting Started callout. resid points to a LongString resource -->
-            <Description resid="Contoso.GetStarted.Description"/>
+            <Description resid="Excely.GetStarted.Description"/>
 
             <!-- Points to a URL resource which details how the add-in should be used. -->
-            <LearnMoreUrl resid="Contoso.GetStarted.LearnMoreUrl"/>
+            <LearnMoreUrl resid="Excely.GetStarted.LearnMoreUrl"/>
           </GetStarted>
           <!-- Function file is a HTML page that includes the JavaScript where functions for ExecuteAction will be called. 
             Think of the FunctionFile as the code behind ExecuteFunction. -->
@@ -73,37 +81,37 @@
             <!-- Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab. -->
             <OfficeTab id="TabHome">
               <!-- Ensure you provide a unique id for the group. Recommendation for any IDs is to namespace using your company name. -->
-              <Group id="Contoso.Group1">
+              <Group id="Excely.SheetExplorer.Group">
                 <!-- Label for your group. resid must point to a ShortString resource. -->
-                <Label resid="Contoso.Group1Label" />
+                <Label resid="Excely.GroupLabel" />
                 <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
                 <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
                 <Icon>
-                  <bt:Image size="16" resid="Contoso.tpicon_16x16" />
-                  <bt:Image size="32" resid="Contoso.tpicon_32x32" />
-                  <bt:Image size="80" resid="Contoso.tpicon_80x80" />
+                  <bt:Image size="16" resid="Excely.tpicon_16x16" />
+                  <bt:Image size="32" resid="Excely.tpicon_32x32" />
+                  <bt:Image size="80" resid="Excely.tpicon_80x80" />
                 </Icon>
 
                 <!-- Control. It can be of type "Button" or "Menu". -->
-                <Control xsi:type="Button" id="Contoso.TaskpaneButton">
-                  <Label resid="Contoso.TaskpaneButton.Label" />
+                <Control xsi:type="Button" id="Excely.TaskpaneButton">
+                  <Label resid="Excely.TaskpaneButton.Label" />
                   <Supertip>
                     <!-- ToolTip title. resid must point to a ShortString resource. -->
-                    <Title resid="Contoso.TaskpaneButton.Label" />
+                    <Title resid="Excely.TaskpaneButton.Label" />
                     <!-- ToolTip description. resid must point to a LongString resource. -->
-                    <Description resid="Contoso.TaskpaneButton.Tooltip" />
+                    <Description resid="Excely.TaskpaneButton.Tooltip" />
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="Contoso.tpicon_16x16" />
-                    <bt:Image size="32" resid="Contoso.tpicon_32x32" />
-                    <bt:Image size="80" resid="Contoso.tpicon_80x80" />
+                    <bt:Image size="16" resid="Excely.tpicon_16x16" />
+                    <bt:Image size="32" resid="Excely.tpicon_32x32" />
+                    <bt:Image size="80" resid="Excely.tpicon_80x80" />
                   </Icon>
 
                   <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
                   <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <TaskpaneId>ShowMainMenu</TaskpaneId>
                     <!-- Provide a URL resource id for the location that will be displayed on the task pane. -->
-                    <SourceLocation resid="Contoso.Taskpane.Url" />
+                    <SourceLocation resid="Excely.Taskpane.Url" />
                   </Action>
                 </Control>
               </Group>
@@ -116,25 +124,25 @@
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
-        <bt:Image id="Contoso.tpicon_16x16" DefaultValue="~remoteAppUrl/Images/Button16x16.png" />
-        <bt:Image id="Contoso.tpicon_32x32" DefaultValue="~remoteAppUrl/Images/Button32x32.png" />
-        <bt:Image id="Contoso.tpicon_80x80" DefaultValue="~remoteAppUrl/Images/Button80x80.png" />
+        <bt:Image id="Excely.tpicon_16x16" DefaultValue="~remoteAppUrl/Images/Button16x16.png" />
+        <bt:Image id="Excely.tpicon_32x32" DefaultValue="~remoteAppUrl/Images/Button32x32.png" />
+        <bt:Image id="Excely.tpicon_80x80" DefaultValue="~remoteAppUrl/Images/Button80x80.png" />
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="~remoteAppUrl/Functions/FunctionFile.html" />
-        <bt:Url id="Contoso.Taskpane.Url" DefaultValue="~remoteAppUrl/Home.html" />
-        <bt:Url id="Contoso.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+        <bt:Url id="Excely.Taskpane.Url" DefaultValue="~remoteAppUrl/Home.html" />
+        <bt:Url id="Excely.GetStarted.LearnMoreUrl" DefaultValue="http://mehrandvd.me/2018/03/10/excel-sheet-explorer-turning-shits-to-sheets/" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
-        <bt:String id="Contoso.TaskpaneButton.Label" DefaultValue="Show Taskpane" />
-        <bt:String id="Contoso.Group1Label" DefaultValue="Commands Group" />
-        <bt:String id="Contoso.GetStarted.Title" DefaultValue="Get started with your sample add-in!" />
+        <bt:String id="Excely.TaskpaneButton.Label" DefaultValue="Show Sheet Explorer" />
+        <bt:String id="Excely.GroupLabel" DefaultValue="Sheet Explorer" />
+        <bt:String id="Excely.GetStarted.Title" DefaultValue="Welcome to Sheet Explorer!" />
       </bt:ShortStrings>
       <!-- LongStrings max characters==250. -->
       <bt:LongStrings>
-        <bt:String id="Contoso.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
-        <bt:String id="Contoso.GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started." />
+        <bt:String id="Excely.TaskpaneButton.Tooltip" DefaultValue="Click to easily navigate sheets" />
+        <bt:String id="Excely.GetStarted.Description" DefaultValue="Sheet Explorer is a simple tool to make sheet navigation even easier. You can also search for sheets and check their formula dependencies." />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
