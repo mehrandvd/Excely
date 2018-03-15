@@ -13,12 +13,12 @@
   <Id>83AD7132-F75B-42E8-A11E-EEF2346DECD2</Id>
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
-  <Version>1.0.0.0</Version>
+  <Version>1.0.0.5</Version>
   <ProviderName>Mehran Davoudi</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
   <DisplayName DefaultValue="Sheet Explorer" />
-  <Description DefaultValue="Excely.SheetExplorer"/>
+  <Description DefaultValue="A very handy tool to navigate between too many sheets and check their formula dependencies."/>
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="~remoteAppUrl/Images/Button32x32.png" />
 
@@ -141,7 +141,7 @@
       </bt:ShortStrings>
       <!-- LongStrings max characters==250. -->
       <bt:LongStrings>
-        <bt:String id="Excely.TaskpaneButton.Tooltip" DefaultValue="Click to easily navigate sheets" />
+        <bt:String id="Excely.TaskpaneButton.Tooltip" DefaultValue="Click to easily navigate through sheets" />
         <bt:String id="Excely.GetStarted.Description" DefaultValue="Sheet Explorer is a simple tool to make sheet navigation even easier. You can also search for sheets and check their formula dependencies." />
       </bt:LongStrings>
     </Resources>
