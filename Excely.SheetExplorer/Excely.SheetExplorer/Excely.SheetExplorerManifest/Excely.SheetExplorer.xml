@@ -132,7 +132,7 @@
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
-        <bt:String id="Excely.TaskpaneButton.Label" DefaultValue="Show Sheet Explorer" />
+        <bt:String id="Excely.TaskpaneButton.Label" DefaultValue="Sheet Explorer" />
         <bt:String id="Excely.GroupLabel" DefaultValue="Sheet Explorer" />
         <bt:String id="Excely.GetStarted.Title" DefaultValue="Welcome to Sheet Explorer!" />
       </bt:ShortStrings>
