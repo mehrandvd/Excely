@@ -45,6 +45,7 @@
   <ItemGroup>
     <None Include="Excely.SheetExplorerManifest\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{65e98be0-3024-4d97-a691-79fe7ba727d2}</SharePointProjectItemId>
+      <SubType>Designer</SubType>
     </None>
     <Content Include="Excely.SheetExplorerManifest\Excely.SheetExplorer.xml">
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
