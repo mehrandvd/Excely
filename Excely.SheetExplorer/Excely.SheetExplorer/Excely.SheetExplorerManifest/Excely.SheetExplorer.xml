@@ -22,7 +22,7 @@
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="~remoteAppUrl/Images/Button32x32.png" />
 
-  <SupportUrl DefaultValue="https://mehrandvd.me/2018/03/10/excel-sheet-explorer-turning-shits-to-sheets/" />
+  <SupportUrl DefaultValue="http://mehrandvd.me/2018/03/10/excel-sheet-explorer-turning-shits-to-sheets/" />
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
   <AppDomains>
     <AppDomain>AppDomain1</AppDomain>
@@ -128,7 +128,7 @@
       <bt:Urls>
         <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="~remoteAppUrl/Functions/FunctionFile.html" />
         <bt:Url id="Excely.Taskpane.Url" DefaultValue="~remoteAppUrl/Home.html" />
-        <bt:Url id="Excely.GetStarted.LearnMoreUrl" DefaultValue="https://mehrandvd.me/2018/03/10/excel-sheet-explorer-turning-shits-to-sheets/" />
+        <bt:Url id="Excely.GetStarted.LearnMoreUrl" DefaultValue="http://mehrandvd.me/2018/03/10/excel-sheet-explorer-turning-shits-to-sheets/" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
