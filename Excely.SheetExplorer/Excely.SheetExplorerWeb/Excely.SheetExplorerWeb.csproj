@@ -127,6 +127,7 @@
     <Content Include="Functions\FunctionFile.js" />
     <None Include="Scripts\Office\1\outlook-win32.debug-vsdoc.js" />
     <None Include="Scripts\Office\1\office-vsdoc.js" />
+    <Content Include="Images\Logo64x64.png" />
     <Content Include="Scripts\FabricUI\fabric.js" />
     <Content Include="Scripts\FabricUI\fabric.min.js" />
     <Content Include="Scripts\jquery.fabric.js" />
@@ -419,9 +420,9 @@
     <Content Include="Home.html" />
     <Content Include="Home.js" />
     <Content Include="Images\AddinIcon.png" />
-    <Content Include="Images\Button16x16.png" />
-    <Content Include="Images\Button32x32.png" />
-    <Content Include="Images\Button80x80.png" />
+    <Content Include="Images\Logo16x16.png" />
+    <Content Include="Images\Logo32x32.png" />
+    <Content Include="Images\Logo80x80.png" />
     <Content Include="Images\Close.png" />
     <Content Include="Scripts\FabricUI\MessageBanner.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -446,7 +447,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>44755</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
