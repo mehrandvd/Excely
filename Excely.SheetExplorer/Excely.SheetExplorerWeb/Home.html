@@ -68,14 +68,6 @@
 <div id="content-main">
     <div class="header">
         <div class="ms-CommandBar">
-            <!--<div class="ms-CommandBar-sideCommands">
-            <div class="ms-CommandButton ms-CommandButton--noLabel">
-                <button class="ms-CommandButton-button">
-                    <span class="ms-CommandButton-icon ms-fontColor-themePrimary"><i class="ms-Icon ms-Icon--CircleRing"></i></span>
-                    <span class="ms-CommandButton-label"></span>
-                </button>
-            </div>
-        </div>-->
             <div class="ms-CommandBar-mainArea">
                 <div class="ms-CommandButton">
                     <button class="ms-CommandButton-button" data-bind="click: refreshSheets">
@@ -95,32 +87,10 @@
    
 
     <div class="padding">
-        <!--<br />
-        <div class="ms-font-xxl ms-fontColor-neutralSecondary ms-fontWeight-semilight" data-bind="text: title"></div>
-        <br /><br />-->
-
         
         <div class="ms-List" data-bind="foreach: filteredSheets">
             <div data-bind="template: { name: 'sheet-template', data: $data }" class="list-row"></div>
-            <!--<li class="ms-ListItem" data-bind="click: function(){$root.activateWorksheet($data);}">
-                <span class="ms-ListItem-primaryText" data-bind="text: sheetInfo.name"></span>
-            </li>-->
         </div>
-
-        <!--<div class="ms-font-xl ms-fontColor-neutralTertiary">Getting Started</div>
-        <p class="ms-font-m-plus ms-fontColor-neutralTertiary" id="template-description"></p>
-        <div class="ms-font-m"><a target="_blank" class="ms-Link ms-Link--hero" href="https://go.microsoft.com/fwlink/?LinkId=276812">Find more samples online...</a></div>
-        <br /><br />
-
-        <button class="ms-Button ms-Button--primary" id="highlight-button">
-            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--plus"></i></span>
-            <span class="ms-Button-label" id="button-text"></span>
-            <span class="ms-Button-description" id="button-desc"></span>
-        </button>-->
-        
-        
-        
-
     </div>
     
     <div class="ms-MessageBar ms-MessageBar--success footer">
@@ -138,7 +108,6 @@
 
 </div>
 
-<!-- FabricUI component used for displaying notifications -->
 <div class="ms-MessageBanner" id="notification-popup">
     <div class="ms-MessageBanner-content">
         <div class="ms-MessageBanner-text">
