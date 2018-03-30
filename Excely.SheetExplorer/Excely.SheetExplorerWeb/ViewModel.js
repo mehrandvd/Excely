@@ -5,6 +5,15 @@
     self.sheets = ko.observableArray([]);
     self.searchText = ko.observable("");
     self.isBusy = ko.observable(false);
+    self.actionCount = ko.observable(0);
+    self.isMehrandvdVisible = ko.pureComputed(function () {
+        return self.actionCount() > 50;
+    });
+
+    function incrementActionCount() {
+        self.actionCount(self.actionCount() + 1);
+    }
+
     self.filteredSheets = ko.pureComputed(function() {
         return self.sheets().filter(function(item) {
             if (item.sheetInfo.name && self.searchText())
@@ -119,7 +128,8 @@
             if (error instanceof OfficeExtension.Error) {
                 console.log("Debug info: " + JSON.stringify(error.debugInfo));
             }
-        });
+            });
+        incrementActionCount();
     }
 
 

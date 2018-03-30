@@ -101,7 +101,8 @@
             <div class="ms-MessageBar-text">
                 Loved it? Want to thank me!? Shout it out here:
                 <br />
-                <a href="http://mehrandvd.me" class="ms-Link">mehrandvd.me</a> 
+                <span data-bind="if: !isMehrandvdVisible()">http://mehrandvd.me</span>
+                <a data-bind="if: isMehrandvdVisible()" target="_blank" href="http://mehrandvd.me">http://mehrandvd.me</a> 
             </div>
         </div>
     </div>
