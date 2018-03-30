@@ -15,7 +15,7 @@
     <RootNamespace>Excely.SheetExplorerWeb</RootNamespace>
     <AssemblyName>Excely.SheetExplorerWeb</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44378</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -108,6 +108,8 @@
     <Content Include="Content\sass\Fabric.Color.Mixins.Output.scss" />
     <Content Include="Content\sass\Fabric.Animations.RTL.Output.scss" />
     <Content Include="Content\sass\Fabric.Animations.Output.scss" />
+    <Content Include="Docs\excely-test-result-1.0.0.6.pdf" />
+    <Content Include="Docs\excely-test-result-1.0.0.1.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\excely-appservice - Web Deploy.pubxml" />
