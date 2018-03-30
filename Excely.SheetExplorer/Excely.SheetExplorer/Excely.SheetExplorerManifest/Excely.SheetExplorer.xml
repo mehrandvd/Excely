@@ -13,7 +13,7 @@
   <Id>83AD7132-F75B-42E8-A11E-EEF2346DECD2</Id>
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
-  <Version>1.0.0.7</Version>
+  <Version>1.0.0.9</Version>
   <ProviderName>Mehran Davoudi</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
@@ -22,7 +22,7 @@
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="~remoteAppUrl/Images/Logo32x32.png" />
 
-  <SupportUrl DefaultValue="http://mehrandvd.me/2018/03/10/excel-sheet-explorer-turning-shits-to-sheets/" />
+  <SupportUrl DefaultValue="http://mehrandvd.me/sheet-explorer-support/" />
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
   <AppDomains>
     <AppDomain>AppDomain1</AppDomain>
@@ -128,7 +128,7 @@
       <bt:Urls>
         <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="~remoteAppUrl/Functions/FunctionFile.html" />
         <bt:Url id="Excely.Taskpane.Url" DefaultValue="~remoteAppUrl/Home.html" />
-        <bt:Url id="Excely.GetStarted.LearnMoreUrl" DefaultValue="http://mehrandvd.me/2018/03/10/excel-sheet-explorer-turning-shits-to-sheets/" />
+        <bt:Url id="Excely.GetStarted.LearnMoreUrl" DefaultValue="http://mehrandvd.me/sheet-explorer-support/" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
