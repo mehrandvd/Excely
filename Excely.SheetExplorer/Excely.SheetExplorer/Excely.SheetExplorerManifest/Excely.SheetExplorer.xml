@@ -86,7 +86,6 @@
                 <Icon>
                   <bt:Image size="16" resid="Excely.tpicon_16x16" />
                   <bt:Image size="32" resid="Excely.tpicon_32x32" />
-                  <bt:Image size="64" resid="Excely.tpicon_64x64" />
                   <bt:Image size="80" resid="Excely.tpicon_80x80" />
                 </Icon>
 
@@ -102,7 +101,6 @@
                   <Icon>
                     <bt:Image size="16" resid="Excely.tpicon_16x16" />
                     <bt:Image size="32" resid="Excely.tpicon_32x32" />
-                    <bt:Image size="64" resid="Excely.tpicon_64x64" />
                     <bt:Image size="80" resid="Excely.tpicon_80x80" />
                   </Icon>
 
@@ -123,10 +121,9 @@
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
-        <bt:Image id="Excely.tpicon_16x16" DefaultValue="~remoteAppUrl/Images/Logo16x16.png" />
-        <bt:Image id="Excely.tpicon_32x32" DefaultValue="~remoteAppUrl/Images/Logo32x32.png" />
-        <bt:Image id="Excely.tpicon_64x64" DefaultValue="~remoteAppUrl/Images/Logo64x64.png" />
-        <bt:Image id="Excely.tpicon_80x80" DefaultValue="~remoteAppUrl/Images/Logo80x80.png" />
+        <bt:Image id="Excely.tpicon_16x16" DefaultValue="https://excely-appservice.azurewebsites.net/Images/Button16x16.png" />
+        <bt:Image id="Excely.tpicon_32x32" DefaultValue="https://excely-appservice.azurewebsites.net/Images/Button32x32.png" />
+        <bt:Image id="Excely.tpicon_80x80" DefaultValue="https://excely-appservice.azurewebsites.net/Images/Button80x80.png" />
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="~remoteAppUrl/Functions/FunctionFile.html" />
