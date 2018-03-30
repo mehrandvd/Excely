@@ -7,7 +7,7 @@
     self.isBusy = ko.observable(false);
     self.actionCount = ko.observable(0);
     self.isMehrandvdVisible = ko.pureComputed(function () {
-        return self.actionCount() > 50;
+        return self.actionCount() > 10;
     });
 
     function incrementActionCount() {
